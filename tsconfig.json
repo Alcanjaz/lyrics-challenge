@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/lyrics-challenge-e2e"
+    },
+    {
+      "path": "./apps/lyrics-challenge"
+    }
+  ]
+}
