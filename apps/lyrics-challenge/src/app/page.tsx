@@ -1,3 +1,5 @@
+import { Button } from '@lyrics-challenge/ui';
+
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -13,6 +15,15 @@ export default function Index() {
               <span> Hello there, </span>
               Welcome @lyrics-challenge/lyrics-challenge 👋
             </h1>
+          </div>
+
+          <div className="mt-6">
+            <h2 className="text-lg font-semibold mb-2">UI Library Check</h2>
+            <div className="flex gap-3">
+              <Button variant="primary">Primary Button</Button>
+              <Button variant="secondary">Secondary Button</Button>
+              <Button variant="ghost">Ghost Button</Button>
+            </div>
           </div>
 
           <div id="hero" className="rounded">
