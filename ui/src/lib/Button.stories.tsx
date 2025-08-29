@@ -19,22 +19,6 @@ export const Primary = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByRole('button', { name: 'Primary' })).toBeTruthy();
-  },
-} satisfies Story;
-
-export const Secondary = {
-  args: {
-    variant: 'secondary',
-    children: 'Secondary',
-    onClick: action('Secondary'),
-  },
-} satisfies Story;
-
-export const Ghost = {
-  args: {
-    variant: 'ghost',
-    children: 'Ghost',
-    onClick: action('Ghost'),
+    await expect(canvas.getByRole('button', { name: 'Primary' })).toBeInTheDocument();
   },
 } satisfies Story;
