@@ -4,7 +4,7 @@
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@lyrics-challenge/lyrics-challenge"
+      "web"
     ]
   }
 }

@@ -24,8 +24,8 @@
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
-    "../../apps/lyrics-challenge/.next/types/**/*.ts",
-    "../../dist/apps/lyrics-challenge/.next/types/**/*.ts",
+    "../../apps/web/.next/types/**/*.ts",
+    "../../dist/apps/web/.next/types/**/*.ts",
     "next-env.d.ts",
     "src/**/*.js",
     "src/**/*.jsx",

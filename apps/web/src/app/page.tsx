@@ -13,7 +13,7 @@ import { Button } from "@lyrics-challenge/ui";
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              Welcome @lyrics-challenge/lyrics-challenge 👋
+              Welcome web 👋
             </h1>
           </div>
 
