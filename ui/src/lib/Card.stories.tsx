@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Card, CardBody, CardDescription, CardImage, CardSubtitle, CardTitle } from './Card';
+import {
+  Card,
+  CardBody,
+  CardDescription,
+  CardImage,
+  CardSubtitle,
+  CardTitle,
+} from './Card';
 
 const meta = {
   title: 'Card',
@@ -18,11 +25,10 @@ export const Default: Story = {
         <CardTitle>Card Title</CardTitle>
         <CardSubtitle>Card subtitle</CardSubtitle>
         <CardDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+          odio.
         </CardDescription>
       </CardBody>
     </Card>
   ),
 };
-
-

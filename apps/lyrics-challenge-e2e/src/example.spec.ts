@@ -21,6 +21,8 @@ test.describe('Home Page', () => {
     // Each card has an image with alt starting with "Artwork"
     await expect(page.getByRole('img', { name: /Artwork/i })).toHaveCount(6);
     // And a title heading per card
-    await expect(page.getByRole('heading', { level: 3, name: /Album/i })).toHaveCount(6);
+    await expect(
+      page.getByRole('heading', { level: 3, name: /Album/i })
+    ).toHaveCount(6);
   });
 });

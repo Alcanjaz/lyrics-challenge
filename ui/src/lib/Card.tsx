@@ -17,29 +17,47 @@ export const Card: React.FC<CardProps> = ({ className = '', ...props }) => {
 
 export type CardImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
-export const CardImage: React.FC<CardImageProps> = ({ className = '', ...props }) => {
+export const CardImage: React.FC<CardImageProps> = ({
+  className = '',
+  ...props
+}) => {
   return (
-    <img className={cn('block w-full h-3/5 object-cover', className)} {...props} />
+    <img
+      className={cn('block w-full h-3/5 object-cover', className)}
+      {...props}
+    />
   );
 };
 
 export type CardBodyProps = React.HTMLAttributes<HTMLDivElement>;
 
-export const CardBody: React.FC<CardBodyProps> = ({ className = '', ...props }) => {
+export const CardBody: React.FC<CardBodyProps> = ({
+  className = '',
+  ...props
+}) => {
   return <div className={cn('p-6', className)} {...props} />;
 };
 
 export type CardTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CardTitle: React.FC<CardTitleProps> = ({ className = '', ...props }) => {
+export const CardTitle: React.FC<CardTitleProps> = ({
+  className = '',
+  ...props
+}) => {
   return (
-    <h3 className={cn('font-bold ly-ds-text-title text-base', className)} {...props} />
+    <h3
+      className={cn('font-bold ly-ds-text-title text-base', className)}
+      {...props}
+    />
   );
 };
 
 export type CardSubtitleProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-export const CardSubtitle: React.FC<CardSubtitleProps> = ({ className = '', ...props }) => {
+export const CardSubtitle: React.FC<CardSubtitleProps> = ({
+  className = '',
+  ...props
+}) => {
   return (
     <p className={cn('text-sm ly-ds-text-button', className)} {...props} />
   );
@@ -47,12 +65,13 @@ export const CardSubtitle: React.FC<CardSubtitleProps> = ({ className = '', ...p
 
 export type CardDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-export const CardDescription: React.FC<CardDescriptionProps> = ({ className = '', ...props }) => {
+export const CardDescription: React.FC<CardDescriptionProps> = ({
+  className = '',
+  ...props
+}) => {
   return (
     <p className={cn('text-sm ly-ds-text-description', className)} {...props} />
   );
 };
 
 export default Card;
-
-

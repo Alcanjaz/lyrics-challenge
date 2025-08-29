@@ -19,6 +19,8 @@ export const Primary = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByRole('button', { name: 'Primary' })).toBeInTheDocument();
+    await expect(
+      canvas.getByRole('button', { name: 'Primary' })
+    ).toBeInTheDocument();
   },
 } satisfies Story;

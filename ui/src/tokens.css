@@ -3,19 +3,41 @@
 /* Design System tokens: prefixed ly-ds */
 @layer utilities {
   /* Font tokens */
-  .ly-ds-font-sans { @apply font-sans; }
+  .ly-ds-font-sans {
+    @apply font-sans;
+  }
 
   /* Background tokens */
-  .ly-ds-bg-hover-active { background-color: #007264; }
-  .ly-ds-bg-primary { background-color: #181818; }
-  .ly-ds-bg-secondary { background-color: #000000; }
-  .ly-ds-bg-button { background-color: #181818; }
-  .ly-ds-bg-cards { background-color: #000000; }
-  .ly-ds-bg-nav { background-color: #000000; }
+  .ly-ds-bg-hover-active {
+    background-color: #007264;
+  }
+  .ly-ds-bg-primary {
+    background-color: #181818;
+  }
+  .ly-ds-bg-secondary {
+    background-color: #000000;
+  }
+  .ly-ds-bg-button {
+    background-color: #181818;
+  }
+  .ly-ds-bg-cards {
+    background-color: #000000;
+  }
+  .ly-ds-bg-nav {
+    background-color: #000000;
+  }
 
   /* Text tokens */
-  .ly-ds-text-title { @apply font-sans; color: #007264; }
-  .ly-ds-text-button { @apply font-sans; color: #CBCBCB; }
-  .ly-ds-text-description { @apply font-sans; color: #9C9C9C; }
+  .ly-ds-text-title {
+    @apply font-sans;
+    color: #007264;
+  }
+  .ly-ds-text-button {
+    @apply font-sans;
+    color: #cbcbcb;
+  }
+  .ly-ds-text-description {
+    @apply font-sans;
+    color: #9c9c9c;
+  }
 }
-

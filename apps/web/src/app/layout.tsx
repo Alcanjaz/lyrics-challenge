@@ -12,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="ly-ds-bg-primary ly-ds-text-description ly-ds-font-sans">{children}</body>
+      <body className="ly-ds-bg-primary ly-ds-text-description ly-ds-font-sans">
+        {children}
+      </body>
     </html>
   );
 }

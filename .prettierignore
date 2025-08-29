@@ -3,3 +3,11 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+/mock_data
+/node_modules
+/dist
+/coverage
+/build
+/dist
+/coverage
+/build
