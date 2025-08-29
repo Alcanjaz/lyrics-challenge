@@ -4,4 +4,5 @@ export interface Band {
   album: string;
   genre: string;
   image: string;
+  description: string;
 }

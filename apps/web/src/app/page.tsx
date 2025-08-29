@@ -2,8 +2,8 @@ import { Button } from '@lyrics-challenge/ui';
 import { getBands } from './(bands)/queries/bands';
 import { BandsList } from './(bands)/components/BandsList';
 
-export default function Index() {
-  const bands = getBands();
+export default async function Index() {
+  const bands = await getBands();
 
   return (
     <div className="min-h-screen flex flex-col">

@@ -1,11 +1,35 @@
+import fs from 'fs';
+import path from 'path';
 import bands from '../../../../mock_data/bands.json';
 import { Band } from '../types/bands';
 
 export function getBands(): Band[] {
   return bands.map((band) => {
     const n = parseInt(band.id, 10);
-    // Matches existing files like im001.png, im005.png, im0010.png, im0012.png
-    const filename = `im00${n}.png`;
+    let filename = `default.png`;
+
+    const imagePath = path.join(process.cwd(), 'sources', `im00${n}.png`);
+    const detailsPath = path.join(process.cwd(), 'mock_data', `${band.id}.json`);
+
+    let description = 'No additional information available.';
+
+    if (fs.existsSync(imagePath)) {
+      filename = `im00${n}.png`;
+    }
+
+    if (fs.existsSync(detailsPath)) {
+      try {
+        const content = fs.readFileSync(detailsPath, 'utf-8');
+        const data = JSON.parse(content);
+        if (typeof data.description === 'string' && data.description.length > 0) {
+          description = data.description;
+        }
+      } catch {
+        // keep default
+      }
+    }
+
+
 
     return {
       id: band.id,
@@ -13,6 +37,7 @@ export function getBands(): Band[] {
       album: band.album,
       genre: band.genre,
       image: `/sources/${filename}`,
+      description,
     } as Band;
   });
 }
