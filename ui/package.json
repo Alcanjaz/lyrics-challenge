@@ -11,6 +11,8 @@
   },
   "exports": {
     "./package.json": "./package.json",
+    "./styles.css": "./src/styles.css",
+    "./tokens.css": "./src/tokens.css",
     ".": {
       "development": "./src/index.ts",
       "types": "./dist/index.d.ts",

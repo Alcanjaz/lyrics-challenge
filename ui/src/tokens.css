@@ -1,0 +1,17 @@
+@tailwind utilities;
+
+/* Design System tokens: prefixed ly-ds */
+@layer utilities {
+  /* Background tokens */
+  .ly-ds-bg-hover-active { background-color: #007264; }
+  .ly-ds-bg-primary { background-color: #181818; }
+  .ly-ds-bg-button { background-color: #181818; }
+  .ly-ds-bg-cards { background-color: #000000; }
+  .ly-ds-bg-nav { background-color: #000000; }
+
+  /* Text tokens */
+  .ly-ds-text-title { color: #007264; }
+  .ly-ds-text-button { color: #CBCBCB; }
+  .ly-ds-text-description { color: #9C9C9C; }
+}
+
