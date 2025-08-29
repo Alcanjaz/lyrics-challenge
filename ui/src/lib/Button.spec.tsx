@@ -6,7 +6,7 @@ describe('Button', () => {
   it('should render successfully', () => {
     render(<Button>Primary</Button>);
     expect(screen.getByRole('button', { name: 'Primary' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Primary' })).toHaveClass('bg-blue-600');
+    expect(screen.getByRole('button', { name: 'Primary' })).toHaveClass('ly-ds-bg-primary');
 
     render(<Button variant="secondary">Secondary</Button>);
     expect(screen.getByRole('button', { name: 'Secondary' })).toBeInTheDocument();
@@ -17,4 +17,3 @@ describe('Button', () => {
     expect(screen.getByRole('button', { name: 'Ghost' })).toHaveClass('bg-transparent');
   });
 });
-
