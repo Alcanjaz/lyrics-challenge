@@ -17,12 +17,12 @@ test.describe('Home Page', () => {
     await expect(page.getByRole('button', { name: 'Home' })).toBeVisible();
   });
 
-  test('displays six album cards', async ({ page }) => {
+  test('displays twelve band cards', async ({ page }) => {
     // Each card has an image with alt starting with "Artwork"
-    await expect(page.getByRole('img', { name: /Artwork/i })).toHaveCount(6);
-    // And a title heading per card
-    await expect(
-      page.getByRole('heading', { level: 3, name: /Album/i })
-    ).toHaveCount(6);
+    await expect(page.getByRole('img', { name: /Artwork/i })).toHaveCount(12);
+    // Each card has a title as an h3 (band name)
+    await expect(page.getByRole('heading', { level: 3 })).toHaveCount(12);
+    // Sanity check: first known band is visible
+    await expect(page.getByRole('heading', { level: 3, name: 'The Velvet Echo' })).toBeVisible();
   });
 });
