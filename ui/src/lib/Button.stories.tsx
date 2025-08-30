@@ -24,3 +24,20 @@ export const Primary = {
     ).toBeInTheDocument();
   },
 } satisfies Story;
+
+export const AsChild = {
+  args: {
+    asChild: true,
+    children: (
+      <a href="#" onClick={(e) => e.preventDefault()}>
+        Link Button
+      </a>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(
+      canvas.getByRole('link', { name: 'Link Button' })
+    ).toBeInTheDocument();
+  },
+} satisfies Story;

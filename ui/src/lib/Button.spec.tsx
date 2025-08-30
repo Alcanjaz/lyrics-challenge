@@ -24,4 +24,15 @@ describe('Button', () => {
       'bg-transparent'
     );
   });
+
+  it('should render asChild content preserving semantics', () => {
+    render(
+      <Button asChild>
+        <a href="#target">Link</a>
+      </Button>
+    );
+
+    const link = screen.getByRole('link', { name: 'Link' });
+    expect(link).toBeInTheDocument();
+  });
 });

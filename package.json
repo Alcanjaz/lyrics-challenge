@@ -8,10 +8,12 @@
     "ui:dev": "nx run ui:storybook",
     "ui:test": "nx run ui:test",
     "build": "nx run-many --target=build",
-    "ui:build": "nx run ui:build"
+    "ui:build": "nx run ui:build",
+    "format": "nx run-many --target=format"
   },
   "private": true,
   "dependencies": {
+    "lucide-react": "^0.542.0",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0"

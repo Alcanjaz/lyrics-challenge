@@ -17,6 +17,11 @@
   .ly-ds-bg-secondary {
     background-color: #000000;
   }
+
+  .ly-ds-bg-tertiary {
+    background-color: #0f0f0f;
+  }
+
   .ly-ds-bg-button {
     background-color: #181818;
   }
