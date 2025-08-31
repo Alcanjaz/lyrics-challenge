@@ -7,7 +7,7 @@ export const Card: React.FC<CardProps> = ({ className = '', ...props }) => {
   return (
     <div
       className={cn(
-        'ly-ds-bg-cards rounded-[10px] overflow-hidden text-left',
+        'ly-ds-bg-cards rounded-xl overflow-hidden text-left w-full max-w-96',
         className
       )}
       {...props}

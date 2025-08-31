@@ -2,4 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@lyrics-challenge/ui/tokens.css';
 @import '@lyrics-challenge/ui/styles.css';

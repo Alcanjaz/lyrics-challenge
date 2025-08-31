@@ -9,7 +9,7 @@
 
   /* Background tokens */
   .ly-ds-bg-hover-active {
-    background-color: #007264;
+    background-color: #007264 !important;
   }
   .ly-ds-bg-primary {
     background-color: #181818;

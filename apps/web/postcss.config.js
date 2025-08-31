@@ -5,6 +5,7 @@ const { join } = require('path');
 //
 // See: https://nx.dev/guides/using-tailwind-css-in-react#step-4:-applying-configuration-to-libraries
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   plugins: {
     tailwindcss: {

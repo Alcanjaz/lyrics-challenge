@@ -25,10 +25,11 @@ export type BadgeProps = React.HTMLAttributes<HTMLElement> &
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
   ({ className = '', variant, children, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'span';
+
     return (
       <Comp
         ref={ref as React.Ref<HTMLElement>}
-        className={cn(badgeVariants({ variant }), className)}
+        className={cn(className, badgeVariants({ variant }))}
         {...props}
       >
         {children ?? 'Badge'}
