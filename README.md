@@ -1,81 +1,84 @@
-# LyricsChallenge
+# Lyrics Challenge
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Elegant, production-grade monorepo showcasing a Next.js 15 app, a reusable UI library, and Playwright E2E tests. Built with Nx for developer ergonomics and consistency.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## Tech Stack
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- Next.js 15 (App Router) + React 19
+- TypeScript 5 + ESLint + Prettier
+- TailwindCSS 3 for styling and design tokens
+- Nx 21 for monorepo orchestration
+- Storybook 8 for UI components
+- Vitest 3 for unit tests (UI library)
+- Playwright for E2E tests
 
-## Finish your CI setup
+## Apps & Packages
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/UG6TaKMuog)
+- `apps/web`: Next.js app featuring band/album browsing with search and genre filters
+- `apps/e2e`: Playwright tests, auto-starts the web app for end-to-end coverage
+- `ui`: Reusable React component library (Button, Card, Input, Badge, Skeleton) with tokens
 
-## Run tasks
-
-To run the dev server for your app, use:
+## Getting Started
 
 ```sh
-npm run dev
+npm install
+npm run dev       # starts apps/web
+# Storybook for the UI library
+npm run ui:dev
 ```
 
-To create a production bundle:
+Build everything:
 
 ```sh
 npm run build
 ```
 
-To see all available targets to run for a project, run:
+## Commands per Project
 
-```sh
-npx nx show project web
-```
+### web (Next.js app)
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+- Test: No unit tests configured (covered via E2E in `apps/e2e`)
+- Lint: `npx nx run web:lint`
+- Format: `npx nx format:write --projects=web`
+- Dev: `npx nx run web:dev`
+- Build: `npx nx run web:build`
+- Start: `npx nx run web:start`
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### ui (component library)
 
-## Add new projects
+- Test: `npx nx run ui:test`
+- Lint: `npx nx run ui:lint`
+- Format: `npx nx format:write --projects=ui`
+- Storybook: `npx nx run ui:storybook` (or `npm run ui:dev`)
+- Build: `npx nx run ui:build`
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+### e2e (Playwright)
 
-Use the plugin's generator to create new projects.
+- Test: `npx nx run e2e:e2e`
+- Lint: `npx nx run e2e:lint`
+- Format: `npx nx format:write --projects=e2e`
 
-To generate a new application, use:
+Notes:
+- E2E tests will start the dev server automatically via Playwright config.
+- Use `BASE_URL` to point E2E tests at a deployed environment.
 
-```sh
-npx nx g @nx/next:app demo
-```
+## Key Features
 
-To generate a new library, use:
+- Accessible, responsive UI with TailwindCSS
+- Fast search and genre filtering over a curated dataset
+- Reusable component library published internally via workspace imports
+- Strict typing and clean, readable code
 
-```sh
-npx nx g @nx/react:lib mylib
-```
+## Roadmap / Improvements
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+- Add unit tests for `apps/web` pages and utilities
+- Package and publish the `ui` library to an internal registry
+- Add visual regression tests for critical pages
+- Expand Storybook docs and usage examples
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Requirements
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- Node.js 20 LTS recommended
+- npm (workspace uses npm)
 
-## Install Nx Console
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/next?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
