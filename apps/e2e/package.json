@@ -1,5 +1,5 @@
 {
-  "name": "@lyrics-challenge/lyrics-challenge-e2e",
+  "name": "@lyrics-challenge/e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {

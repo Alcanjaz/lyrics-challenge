@@ -4,7 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/lyrics-challenge-e2e"
+      "path": "./apps/e2e"
     },
     {
       "path": "./apps/web"

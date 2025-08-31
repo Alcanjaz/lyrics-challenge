@@ -14,8 +14,8 @@ type Story = StoryObj<typeof Skeleton>;
 export const Default: Story = {
   args: {
     className: 'h-6 w-48',
-    'data-testid': 'skeleton',
   },
+  render: (args) => <Skeleton {...args} data-testid="skeleton" />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByTestId('skeleton')).toBeInTheDocument();

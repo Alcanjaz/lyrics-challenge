@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx run web:dev",
-    "e2e": "nx run lyrics-challenge-e2e:e2e",
+    "e2e": "nx run e2e:e2e",
     "ui:dev": "nx run ui:storybook",
     "ui:test": "nx run ui:test",
     "build": "nx run-many --target=build",
