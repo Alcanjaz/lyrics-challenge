@@ -6,10 +6,11 @@ import {
 } from '@lyrics-challenge/ui';
 import { getBands } from './(bands)/queries/bands';
 import { BandsList } from './(bands)/components/BandsList';
-import { Bell, Cog, Flag, MessageCircle } from 'lucide-react';
+import { Bell, Cog, MessageCircle } from 'lucide-react';
 import { GenreFiltersList } from './(bands)/components/GenreFiltersList';
 import { SearchBands } from './(bands)/components/SearchBands';
 import type { Band } from './(bands)/types/bands';
+import { WelcomeMessage } from './(bands)/components/WelcomeMessage';
 
 type IndexProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -64,10 +65,10 @@ export default async function Index(props: IndexProps) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Two-column page grid: left content, right sidebar */}
-      <div className="mx-auto w-full max-w-fit px-6 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="mx-auto w-full max-w-fit px-6 pt-8 flex flex-col lg:flex-row gap-6 transition-all duration-300 ease-out">
         {/* Left: navbar + albums */}
-        <div className="lg:col-span-9 flex flex-col">
-          <nav className="top-8 z-10 w-full ly-ds-bg-tertiary px-4 rounded-md">
+        <div className="flex-1 flex flex-col min-w-0 transition-all duration-300 ease-out">
+          <nav className="top-8 z-10 w-full ly-ds-bg-tertiary px-4 rounded-md animate-slide-in-up">
             <div className="py-3 grid grid-cols-12 items-center gap-3">
               {/* Left: Logo */}
               <div className="col-span-6 sm:col-span-3 md:col-span-2 flex items-center justify-start gap-2">
@@ -104,7 +105,7 @@ export default async function Index(props: IndexProps) {
           </nav>
 
           <main className="flex-1">
-            <section className="py-8" aria-live="polite">
+            <section className="py-8 transition-all duration-300 ease-out animate-fade-in" aria-live="polite">
               <h1 className="sr-only">Lyric Challenge</h1>
               {bands.length > 0 ? (
                 <BandsList bands={bands} />
@@ -137,57 +138,7 @@ export default async function Index(props: IndexProps) {
         </div>
 
         {/* Right: welcome card(s) */}
-        <aside className="hidden lg:flex lg:col-span-3 flex-col gap-4 w-full">
-          <Card>
-            <CardBody className="space-y-3 ly-ds-bg-tertiary">
-              <CardTitle className="ly-ds-text-title">
-                Welcome to Lyric Music
-              </CardTitle>
-              <CardDescription>
-                We’re thrilled to have you join us on this musical journey!
-                Lyric Music is your gateway to a fresh and immersive way to
-                enjoy the bands and artists you love. Whether you&apos;re
-                searching for your all-time favorite tracks, exploring curated
-                playlists crafted to fit every mood, or discovering new songs
-                that will soon become your go-to anthems, Lyric Music is here to
-                elevate your listening experience.
-              </CardDescription>
-              <CardDescription>
-                Imagine having the perfect soundtrack for every moment of your
-                life, from energizing workouts to peaceful evenings under the
-                stars. With an intuitive interface designed to make finding
-                music effortless and enjoyable, you’ll spend less time searching
-                and more time grooving. Best of all, it’s completely
-                free—because we believe that great music should be accessible to
-                everyone.
-              </CardDescription>
-              <CardDescription>
-                At Lyric Music, we’re passionate about creating a community
-                where music lovers like you can explore, connect, and celebrate
-                the power of sound. So dive in, press play, and let the music
-                move you. Welcome to your new favorite way to listen.
-              </CardDescription>
-
-              <Card>
-                <CardBody className="ly-ds-bg-primary grid grid-cols-3 items-center gap-3">
-                  <Flag
-                    size={75}
-                    className="ly-ds-text-title col-span-1"
-                    aria-hidden="true"
-                  />
-                  <div className="space-y-1 col-span-2">
-                    <CardTitle className="ly-ds-text-title text-xl">
-                      COMING SOON
-                    </CardTitle>
-                    <CardDescription>
-                      Check out what’s new for 2025 from the Lyric team.
-                    </CardDescription>
-                  </div>
-                </CardBody>
-              </Card>
-            </CardBody>
-          </Card>
-        </aside>
+        <WelcomeMessage />
       </div>
     </div>
   );
