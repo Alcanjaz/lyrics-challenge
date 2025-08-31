@@ -64,12 +64,8 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
     }
   };
 
-  genres.map((genre) => {
-    console.log(genre, isSelected(genre));
-  });
-
   return (
-    <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap p-1">
+    <div className="flex items-center gap-2 lg:gap-3 overflow-x-auto whitespace-nowrap p-1">
       {/* All filter */}
       <Badge
         role="button"
@@ -94,6 +90,7 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
           }
         }}
         className={cn(
+          'lg:px-5 lg:py-1.5 lg:text-sm',
           selectedGenres.length === 0 ? 'ly-ds-bg-hover-active' : undefined
         )}
       >
@@ -109,6 +106,7 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
           onClick={() => toggleGenre(genre)}
           onKeyDown={handleKeyDown(genre)}
           className={cn(
+            'lg:px-5 lg:py-1.5 lg:text-sm',
             isSelected(genre) ? 'ly-ds-bg-hover-active' : undefined
           )}
         >
