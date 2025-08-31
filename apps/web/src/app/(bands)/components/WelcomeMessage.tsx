@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, KeyboardEvent } from 'react';
+import { useState, useCallback } from 'react';
 import { X, Flag } from 'lucide-react';
 import {
   Card,
@@ -16,15 +16,12 @@ export const WelcomeMessage = () => {
     setIsOpen(false);
   }, []);
 
-  const handleDismissKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLButtonElement>) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        setIsOpen(false);
-      }
-    },
-    []
-  );
+  const handleDismissKeyDown = useCallback<React.KeyboardEventHandler<HTMLButtonElement>>((event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setIsOpen(false);
+    }
+  }, []);
 
   if (!isOpen) return null;
 

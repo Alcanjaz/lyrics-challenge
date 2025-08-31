@@ -11,6 +11,7 @@ type SearchBandsProps = {
 };
 
 export const SearchBands: React.FC<SearchBandsProps> = ({
+  //This is not in the design, but I think it's better to have a placeholder
   placeholder = 'Search bands',
   search,
 }) => {

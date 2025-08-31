@@ -17,7 +17,7 @@ export const BandsList = ({ bands }: { bands: Band[] }) => {
           <CardImage
             src={band.image}
             alt={`Artwork ${band.id}`}
-            loading="lazy"
+            loading="eager"
             className={cn('block w-full h-3/5 object-cover')}
           />
           <CardBody className="pb-4 pt-2">

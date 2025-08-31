@@ -33,7 +33,11 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const selected = React.useMemo(() => selectedGenres, [selectedGenres]);
+  const replaceUrl = (next: URLSearchParams) => {
+    const qs = next.toString();
+    const url = qs ? `${pathname}?${qs}` : pathname;
+    router.replace(url, { scroll: false });
+  };
 
   const toggleGenre = (genre: string) => {
     const next = new URLSearchParams(searchParams.toString());
@@ -50,17 +54,21 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
     next.delete('genres');
     Array.from(current).forEach((g) => next.append('genres', g));
 
-    const qs = next.toString();
-    const url = qs ? `${pathname}?${qs}` : pathname;
-    router.replace(url, { scroll: false });
+    replaceUrl(next);
+  };
+
+  const clearGenres = () => {
+    const next = new URLSearchParams(searchParams.toString());
+    next.delete('genres');
+    replaceUrl(next);
   };
 
   const isSelected = (genre: string) => selectedGenres.includes(genre);
 
-  const handleKeyDown = (genre: string) => (e: React.KeyboardEvent) => {
+  const handleActionKeyDown = (action: () => void) => (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      toggleGenre(genre);
+      action();
     }
   };
 
@@ -70,25 +78,10 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
       <Badge
         role="button"
         tabIndex={0}
-        aria-pressed={selected.length === 0}
+        aria-pressed={selectedGenres.length === 0}
         aria-label="Show all genres"
-        onClick={() => {
-          const next = new URLSearchParams(searchParams.toString());
-          next.delete('genres');
-          const qs = next.toString();
-          const url = qs ? `${pathname}?${qs}` : pathname;
-          router.replace(url, { scroll: false });
-        }}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            const next = new URLSearchParams(searchParams.toString());
-            next.delete('genres');
-            const qs = next.toString();
-            const url = qs ? `${pathname}?${qs}` : pathname;
-            router.replace(url, { scroll: false });
-          }
-        }}
+        onClick={clearGenres}
+        onKeyDown={handleActionKeyDown(clearGenres)}
         className={cn(
           'lg:px-5 lg:py-1.5 lg:text-sm',
           selectedGenres.length === 0 ? 'ly-ds-bg-hover-active' : undefined
@@ -104,7 +97,7 @@ export const GenreFiltersList: React.FC<GenreFiltersListProps> = ({
           aria-pressed={isSelected(genre)}
           aria-label={`Filter by ${genre}`}
           onClick={() => toggleGenre(genre)}
-          onKeyDown={handleKeyDown(genre)}
+          onKeyDown={handleActionKeyDown(() => toggleGenre(genre))}
           className={cn(
             'lg:px-5 lg:py-1.5 lg:text-sm',
             isSelected(genre) ? 'ly-ds-bg-hover-active' : undefined

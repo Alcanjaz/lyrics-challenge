@@ -29,8 +29,6 @@ export function getBands(): Band[] {
       }
     }
 
-
-
     return {
       id: band.id,
       name: band.band_name,
