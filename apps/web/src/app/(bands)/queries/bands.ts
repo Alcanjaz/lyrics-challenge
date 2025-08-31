@@ -3,13 +3,19 @@ import path from 'path';
 import bands from '../../../../mock_data/bands.json';
 import { Band } from '../types/bands';
 
-export function getBands(): Band[] {
+export async function getBands(): Promise<Band[]> {
+  // Uncomment this to test loading skeleton 🐹
+  //await new Promise((resolve) => setTimeout(resolve, 4000));
   return bands.map((band) => {
     const n = parseInt(band.id, 10);
     let filename = `default.png`;
 
     const imagePath = path.join(process.cwd(), 'sources', `im00${n}.png`);
-    const detailsPath = path.join(process.cwd(), 'mock_data', `${band.id}.json`);
+    const detailsPath = path.join(
+      process.cwd(),
+      'mock_data',
+      `${band.id}.json`
+    );
 
     let description = 'No additional information available.';
 
@@ -21,7 +27,10 @@ export function getBands(): Band[] {
       try {
         const content = fs.readFileSync(detailsPath, 'utf-8');
         const data = JSON.parse(content);
-        if (typeof data.description === 'string' && data.description.length > 0) {
+        if (
+          typeof data.description === 'string' &&
+          data.description.length > 0
+        ) {
           description = data.description;
         }
       } catch {

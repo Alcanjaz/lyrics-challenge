@@ -65,13 +65,10 @@ export default async function Index(props: IndexProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Two-column page grid: left content, right sidebar */}
       <div className="mx-auto w-full max-w-fit px-6 pt-8 flex flex-col lg:flex-row gap-6 transition-all duration-300 ease-out">
-        {/* Left: navbar + albums */}
         <div className="flex-1 flex flex-col min-w-0 transition-all duration-300 ease-out">
           <nav className="top-8 z-10 w-full ly-ds-bg-tertiary px-4 rounded-md animate-slide-in-up">
             <div className="py-3 grid grid-cols-12 items-center gap-3 lg:gap-4">
-              {/* Left: Logo */}
               <div className="col-span-6 sm:col-span-3 md:col-span-2 flex items-center justify-start gap-2">
                 <Image
                   src="/sources/lyric_lg_rgb_mnt_wht.png"
@@ -82,7 +79,6 @@ export default async function Index(props: IndexProps) {
                 />
               </div>
 
-              {/* Genre filters */}
               <div className="col-span-12 order-3 sm:order-2 sm:col-span-9 md:col-span-5 lg:col-span-4">
                 <GenreFiltersList
                   genres={uniqueGenres}
@@ -90,14 +86,12 @@ export default async function Index(props: IndexProps) {
                 />
               </div>
 
-              {/* Search */}
               <div className="col-span-12 order-2 sm:order-3 sm:col-span-12 md:col-span-4 lg:col-span-4">
                 <div className="w-full lg:w-1/2">
                   <SearchBands placeholder="Search bands" search={rawSearch} />
                 </div>
               </div>
 
-              {/* Icons */}
               <div className="col-span-6 sm:col-span-3 md:col-span-1 lg:col-span-2 order-4 sm:order-4 md:order-4 lg:order-4 flex items-center justify-end gap-2 lg:gap-3">
                 <Bell className="h-5 w-5 lg:h-6 lg:w-6 ly-ds-text-button" />
                 <Cog className="h-5 w-5 lg:h-6 lg:w-6 ly-ds-text-button" />
@@ -107,7 +101,10 @@ export default async function Index(props: IndexProps) {
           </nav>
 
           <main className="flex-1">
-            <section className="py-8 transition-all duration-300 ease-out animate-fade-in" aria-live="polite">
+            <section
+              className="py-8 transition-all duration-300 ease-out animate-fade-in"
+              aria-live="polite"
+            >
               <h1 className="sr-only">Lyric Challenge</h1>
               {bands.length > 0 ? (
                 <BandsList bands={bands} />
@@ -115,7 +112,9 @@ export default async function Index(props: IndexProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <Card className="sm:col-span-2 lg:col-span-3">
                     <CardBody className="ly-ds-bg-tertiary">
-                      <CardTitle className="ly-ds-text-title">No results</CardTitle>
+                      <CardTitle className="ly-ds-text-title">
+                        No results
+                      </CardTitle>
                       <CardDescription>
                         {rawSearch.length > 0
                           ? `No albums match the search “${rawSearch}”. Try a different term or clear filters.`
@@ -129,7 +128,6 @@ export default async function Index(props: IndexProps) {
           </main>
         </div>
 
-        {/* Right: welcome card(s) */}
         <WelcomeMessage />
       </div>
     </div>
