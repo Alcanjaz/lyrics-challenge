@@ -9,7 +9,7 @@
     "ui:test": "nx run ui:test",
     "build": "nx run-many --target=build",
     "ui:build": "nx run ui:build",
-    "format": "nx run format"
+    "format": "nx format"
   },
   "private": true,
   "dependencies": {

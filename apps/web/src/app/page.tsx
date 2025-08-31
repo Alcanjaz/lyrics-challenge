@@ -14,7 +14,7 @@ import { WelcomeMessage } from './(bands)/components/WelcomeMessage';
 import Image from 'next/image';
 
 type IndexProps = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
+  searchParams?: Record<string, string | string[] | undefined>;
 };
 
 const getSelectedGenres = (
@@ -38,26 +38,31 @@ const getSearch = (
   return Array.isArray(value) ? value[0] ?? '' : value ?? '';
 };
 
-export default async function Index(props: IndexProps) {
-  const [sp, allBands] = await Promise.all([props.searchParams, getBands()]);
+export default async function Index({ searchParams }: IndexProps) {
+  const allBands = await getBands();
+  const sp = await searchParams;
 
   const selectedGenres = getSelectedGenres(sp);
   const rawSearch = getSearch(sp);
-  const search = rawSearch.toLowerCase();
+  const query = rawSearch.trim().toLowerCase();
 
-  let bands: Band[] = allBands;
-  if (selectedGenres.length > 0) {
-    const genreSet = new Set(selectedGenres.map((g) => g.toLowerCase()));
-    bands = bands.filter((b) => genreSet.has(b.genre.toLowerCase()));
-  }
-  if (search.length > 0) {
-    bands = bands.filter(
-      (b) =>
-        b.name.toLowerCase().includes(search) ||
-        b.album.toLowerCase().includes(search) ||
-        b.genre.toLowerCase().includes(search)
+  const selectedGenreSet =
+    selectedGenres.length > 0
+      ? new Set(selectedGenres.map((g) => g.toLowerCase()))
+      : null;
+
+  const bands: Band[] = allBands.filter((band) => {
+    if (selectedGenreSet && !selectedGenreSet.has(band.genre.toLowerCase())) {
+      return false;
+    }
+    if (query.length === 0) return true;
+    const name = band.name.toLowerCase();
+    const album = band.album.toLowerCase();
+    const genre = band.genre.toLowerCase();
+    return (
+      name.includes(query) || album.includes(query) || genre.includes(query)
     );
-  }
+  });
 
   const uniqueGenres = Array.from(new Set(allBands.map((b) => b.genre))).sort(
     (a, b) => a.localeCompare(b)
